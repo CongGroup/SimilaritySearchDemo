@@ -134,7 +134,7 @@ public:
     {
         
 
-        //º”‘ÿkmeans vocabulary
+        //Âä†ËΩΩkmeans vocabulary
         oImgCtl.LoadVocabulary("/data/InformationDayDemoData/kmeans.vob", DEF_KMEANS_K);
 
 
@@ -203,10 +203,10 @@ public:
 
         printf("%u %u %u %u \n", SHA256_LSH(123123123), SHA256_LSH(123123123), SHA256_LSH(1231231234), SHA256_LSH(1231231234));
 
-        //º”‘ÿkmeans vocabulary
+        //Âä†ËΩΩkmeans vocabulary
         oImgCtl.LoadVocabulary("/data/InformationDayDemoData/kmeans.vob", DEF_KMEANS_K);
 
-        //¥”Œƒº˛÷–∂¡BOW
+        //‰ªéÊñá‰ª∂‰∏≠ËØªBOW
         fstream fp;
         char szBuf[1000];
 
@@ -228,7 +228,7 @@ public:
             }
         }
 
-        //º∆À„LSH
+        //ËÆ°ÁÆóLSH
         g_oE2lsh.InitLSH(LSH_R, DEF_KMEANS_K, LSH_L, LSH_K, LSH_W);
         for(uint32_t uiCur = 0; uiCur < DEF_MAX_IMG; uiCur++)
         {
@@ -249,7 +249,7 @@ public:
 
         cout << "Begin to Build Index" << endl;
 
-        //Ω®¡¢À˜“˝
+        //Âª∫Á´ãÁ¥¢Âºï
         g_memory = new char[DEF_MAX_IMG * 2 * 10];
         memset(g_memory, 0, sizeof(g_memory));
         g_oNestHash.InitNestHash(g_memory, NEST_L, NEST_DELTA, NEST_W);
@@ -274,7 +274,7 @@ public:
 
         g_oNestHash.CheckNestLoad();
 
-        //≥ı ºªØ»´æ÷¡Ÿ ±Œƒº˛∑˚
+        //ÂàùÂßãÂåñÂÖ®Â±Ä‰∏¥Êó∂Êñá‰ª∂Á¨¶
         g_downName = 0;
 
     }
@@ -311,7 +311,7 @@ public:
         string sRandomMask = "";
         string sDistance = "";
 
-        //–¥Œƒº˛
+        //ÂÜôÊñá‰ª∂
         char temp[300];
         snprintf(temp, sizeof(temp), "%s999999", DEF_IMG_PATH.c_str());
         ofstream out;
@@ -320,7 +320,7 @@ public:
         out.write(img.c_str(), img.length());
         char szTmp[500];
 
-        //Ã·Ãÿ’˜
+        //ÊèêÁâπÂæÅ
         
         printf("Get a Pictures , the size is %u .\n", img.size());
         
@@ -343,7 +343,7 @@ public:
         
         DiffTime();
 
-        //º∆À„LSH
+        //ËÆ°ÁÆóLSH
         uint32_t arLsh[LSH_L];
         memset(arLsh, 0, sizeof(arLsh));
         g_oE2lsh.ComputeLSH(arBow, arLsh);
@@ -377,7 +377,7 @@ public:
 
         printf("Begin to Search!\n");
 
-        //≤È—Ø
+        //Êü•ËØ¢
         DiffTime();
 
         const uint32_t uiQnum = LSH_L * ( NEST_DELTA + 1 );
@@ -406,7 +406,7 @@ public:
 
         DiffTime();
 
-        //≈≈–Ú
+        //ÊéíÂ∫è
         uint32_t uiMaxRet = 9;
         uint32_t uiCnt = 0;
         map<double, vector<uint32_t> > mapDisID;
@@ -438,32 +438,32 @@ public:
         
         uint32_t uiSortTime = DiffTime();
 
-        //Ã·»° ±º‰
+        //ÊèêÂèñÊó∂Èó¥
         
         snprintf(szTmp, sizeof(szTmp), "%u", uiExtractBow);
         string sTmp(szTmp);
         _return.push_back(sTmp);
         cout<<"Extract Bow Time : "<<szTmp<<endl;
 
-        //LSHº∆À„ ±º‰
+        //LSHËÆ°ÁÆóÊó∂Èó¥
         snprintf(szTmp, sizeof(szTmp), "%u", uiComputeLsh);
         sTmp.assign(szTmp);
         _return.push_back(sTmp);
         cout<<"Compute LSH Time : "<<szTmp<<endl;
         
-        //LSHµƒº”√‹ ±º‰
+        //LSHÁöÑÂä†ÂØÜÊó∂Èó¥
         snprintf(szTmp, sizeof(szTmp), "%u", uiEncryptLsh);
         sTmp.assign(szTmp);
         _return.push_back(sTmp);
         cout<<"Encrypt LSH Time : "<<szTmp<<endl;
         
-        //À˜“˝ ±º‰
+        //Á¥¢ÂºïÊó∂Èó¥
         snprintf(szTmp, sizeof(szTmp), "%u", uiQueryImg);
         sTmp.assign(szTmp);
         _return.push_back(sTmp);
         cout<<"Query Time : "<<szTmp<<endl;
 
-        //≈≈–Ú ±º‰
+        //ÊéíÂ∫èÊó∂Èó¥
         snprintf(szTmp, sizeof(szTmp), "%u", uiSortTime);
         sTmp.assign(szTmp);
         _return.push_back(sTmp);
