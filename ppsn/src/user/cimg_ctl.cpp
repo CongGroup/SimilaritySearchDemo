@@ -1,10 +1,10 @@
 /******************************************************************************
- * ÎÄ¼şÃû³Æ£º cimg_ctl.cpp
- * Àà    Ãû£º CImgCtl
- * Ãè    Êö:  ÓÃÓÚÍ¼Ïñ´¦ÀíµÄÀà
- * ´´½¨ÈÕÆÚ:  2013-10-8
- * ×÷    Õß£º rainewang
- * ĞŞ¸ÄÀúÊ·£º
+ * æ–‡ä»¶åç§°ï¼š cimg_ctl.cpp
+ * ç±»    åï¼š CImgCtl
+ * æ    è¿°:  ç”¨äºå›¾åƒå¤„ç†çš„ç±»
+ * åˆ›å»ºæ—¥æœŸ:  2013-10-8
+ * ä½œ    è€…ï¼š rainewang
+ * ä¿®æ”¹å†å²ï¼š
  ******************************************************************************/
 #include <stdint.h>
 #include <map>
@@ -57,7 +57,7 @@ int CImgCtl::LoadVocabulary(string strPath, uint32_t uiDictSize)
     fs["vocabulary"] >> m_matVocabulary;
     m_uiDictSize = uiDictSize;
     
-    //¼ÓÔØ·ÖÀà¿â
+    //åŠ è½½åˆ†ç±»åº“
     printf("begin read from img %s", strPath.c_str());
 
     printf("Finish Load Vocabulary From Path : %s\n", strPath.c_str());
@@ -218,14 +218,14 @@ void CImgCtl::ExtractBow(string strPath, double *parDouble)
         m_pBowDE->setVocabulary(m_matVocabulary);
     }
   
-    //´ÓÎÄ¼ş¶Áµ½Mat
+    //ä»æ–‡ä»¶è¯»åˆ°Mat
     //printf("begin read from img %s", strPath.c_str());
     Mat matImg = imread(strPath);
     if(!matImg.empty())
     {
         //printf("finish read from img %s", strPath.c_str());
         vector<KeyPoint> vecKeypoints;
-        //ÌáÈ¡ÌØÕ÷µã
+        //æå–ç‰¹å¾ç‚¹
         m_detector->detect(matImg, vecKeypoints);
         if(vecKeypoints.size() == 0)
         {
@@ -236,7 +236,7 @@ void CImgCtl::ExtractBow(string strPath, double *parDouble)
             return;
         }
         Mat matImgBow(0, m_uiDictSize, CV_32FC1);
-        //¼ÆËãBOW
+        //è®¡ç®—BOW
         m_pBowDE->compute(matImg, vecKeypoints, matImgBow);
         //printf("FINISH COMPT KEYPOINT :%u ", vecKeypoints.size());
         float fUserBow = 0;

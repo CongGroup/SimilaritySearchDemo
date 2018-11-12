@@ -34,11 +34,11 @@ int Lib_Semp_Unlock(SEMLOCKINFO *);
 char* GetShm(int iKey, size_t iSize, int iFlag);
 //bzero
 int GetShm2(void **pstShm, int iShmID, size_t iSize, int iFlag);
-//no bzero 1 ²»ĞèÒªinit
+//no bzero 1 ä¸éœ€è¦init
 int GetShm3(void **pstShm, int iShmID, size_t iSize, int iFlag);
 /**
- *	Ö§³Ö¿ªÆô´óÓÚ2GµÄ¹²ÏíÄÚ´æ
- *  ×¢Òâ: ±ØĞë±£Ö¤ /proc/sys/kernel/shmmax Ò²´óÓÚ2G
+ *	æ”¯æŒå¼€å¯å¤§äº2Gçš„å…±äº«å†…å­˜
+ *  æ³¨æ„: å¿…é¡»ä¿è¯ /proc/sys/kernel/shmmax ä¹Ÿå¤§äº2G
  *  added by robintang 2013-06-17
  */
 char* GetShmEx(int iKey, size_t Size, int iFlag);

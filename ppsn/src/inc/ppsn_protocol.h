@@ -1,8 +1,8 @@
 /******************************************************************************
- * ÎÄ¼şÃû³Æ£º ppsn_protocol.h
- * Ãè    Êö:  ÏîÄ¿ËùÓĞĞ­ÒéµÄ¼¯ºÏ¡£
- * ´´½¨ÈÕÆÚ:  2013-10-7
- * ×÷    Õß£º rainewang
+ * æ–‡ä»¶åç§°ï¼š ppsn_protocol.h
+ * æ    è¿°:  é¡¹ç›®æ‰€æœ‰åè®®çš„é›†åˆã€‚
+ * åˆ›å»ºæ—¥æœŸ:  2013-10-7
+ * ä½œ    è€…ï¼š rainewang
  ******************************************************************************/
 
 #ifndef __PPSN_PROTOCOL_H__
@@ -32,16 +32,16 @@ enum emCommandState
 #pragma pack(1)
 
 typedef struct stUserReq{
-    uint32_t dwUID;                     //±íÊ¾ÓÃ»§µÄID
-    uint32_t dwK;                       //¾ØÕóµÄ¿í
-    uint32_t dwL;                       //¾ØÕóµÄ¸ß
-    double arMatrix[0];                  //¾ØÕóÊı¾İ
+    uint32_t dwUID;                     //è¡¨ç¤ºç”¨æˆ·çš„ID
+    uint32_t dwK;                       //çŸ©é˜µçš„å®½
+    uint32_t dwL;                       //çŸ©é˜µçš„é«˜
+    double arMatrix[0];                  //çŸ©é˜µæ•°æ®
 };
 
 typedef struct stUserRsp{
-    uint32_t dwUID;                     //±íÊ¾ÓÃ»§ID
-    uint32_t dwUserNum;                 //·µ»ØµÄUser¸öÊı
-    uint32_t arUserID[0];               //·µ»ØµÄÓÃ»§Êı×é
+    uint32_t dwUID;                     //è¡¨ç¤ºç”¨æˆ·ID
+    uint32_t dwUserNum;                 //è¿”å›çš„Userä¸ªæ•°
+    uint32_t arUserID[0];               //è¿”å›çš„ç”¨æˆ·æ•°ç»„
 };
 
 #pragma pack()

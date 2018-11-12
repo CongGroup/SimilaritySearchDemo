@@ -57,8 +57,8 @@ int GetShm3(void **pstShm, int iShmID, size_t iSize, int iFlag)
 }
 
 /**
- *	Ö§³Ö¿ªÆô´óÓÚ2GµÄ¹²ÏíÄÚ´æ
- *  ×¢Òâ: ±ØĞë±£Ö¤ /proc/sys/kernel/shmmax Ò²´óÓÚ2G
+ *	æ”¯æŒå¼€å¯å¤§äº2Gçš„å…±äº«å†…å­˜
+ *  æ³¨æ„: å¿…é¡»ä¿è¯ /proc/sys/kernel/shmmax ä¹Ÿå¤§äº2G
  *  added by robintang 2013-06-17
  */
 char* GetShmEx(int iKey, size_t Size, int iFlag)
@@ -104,7 +104,7 @@ int RWLock_Init(key_t key,int iLockNums,int iChldID)
 		for ( i = 0 ; i < iLockNums ; i++)
 			ptr[i] = 0;
 		if( semctl( iRWLockID , 0 , SETALL , arg ) == -1 )
-		{ /* ³õÊ¼»¯sem */
+		{ /* åˆå§‹åŒ–sem */
 			free(ptr);
 			perror("semctl error\n");
 			return (-1);
@@ -189,7 +189,7 @@ static int semcall(int wkey,int op)
 	struct sembuf sbuf[2];
 	struct sembuf	*ptr = NULL;
 
-	/* ÈôwkeyÎª-1 Ôò¶ÔĞÅºÅÁ¿¼¯ºÏËùÓĞÔªËØ¸³Öµ £¬·ñÔòÖ»¶ÔÏàÓ¦µÄÔªËØ¸³Öµ */
+	/* è‹¥wkeyä¸º-1 åˆ™å¯¹ä¿¡å·é‡é›†åˆæ‰€æœ‰å…ƒç´ èµ‹å€¼ ï¼Œå¦åˆ™åªå¯¹ç›¸åº”çš„å…ƒç´ èµ‹å€¼ */
 	if (wkey > -1)
 		nsems = 1;
 	else
@@ -239,12 +239,12 @@ static int semcall(int wkey,int op)
 			sbuf[0].sem_flg = 0; 
 			sbuf[1].sem_num = wkey;
 			sbuf[1].sem_op  = op;
-			sbuf[1].sem_flg = SEM_UNDO; /* µ±½ø³ÌÍË³öÊ±»Ö¸´ËùÓĞ²Ù×÷ */
+			sbuf[1].sem_flg = SEM_UNDO; /* å½“è¿›ç¨‹é€€å‡ºæ—¶æ¢å¤æ‰€æœ‰æ“ä½œ */
 		}else
 		{
 			sbuf[0].sem_num = wkey;
 			sbuf[0].sem_op  = op;
-			sbuf[0].sem_flg = SEM_UNDO; /* µ±½ø³ÌÍË³öÊ±»Ö¸´ËùÓĞ²Ù×÷ */
+			sbuf[0].sem_flg = SEM_UNDO; /* å½“è¿›ç¨‹é€€å‡ºæ—¶æ¢å¤æ‰€æœ‰æ“ä½œ */
 		}
 		if(semop(iRWLockID,sbuf,nsems)==-1)
 		{
@@ -281,7 +281,7 @@ int RWLock_WDLock()
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
-//ĞÅºÅÁ¿²Ù×÷Ïà¹Øº¯Êı
+//ä¿¡å·é‡æ“ä½œç›¸å…³å‡½æ•°
 //static int  iSemID=-1;	
 //#define SEMP_KEY 0x2999
 
@@ -296,9 +296,9 @@ int Lib_Semp_Init(SEMLOCKINFO *pstLockInfo,int iShmKey)
 #endif
 	union semun arg;
 	u_short array[2] = { 0, 0 };
-	int iFirst=1;  //ÊÇ·ñµÚÒ»´Î´´½¨
+	int iFirst=1;  //æ˜¯å¦ç¬¬ä¸€æ¬¡åˆ›å»º
 
-	//³õÊ¼»¯ĞÅºÅµÆ
+	//åˆå§‹åŒ–ä¿¡å·ç¯
 	iFirst=1;
 	if ((pstLockInfo->iSemID = semget(iShmKey, 1, 0666 | IPC_CREAT | IPC_EXCL )) <0 )
 	{

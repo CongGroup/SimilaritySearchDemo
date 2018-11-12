@@ -1,8 +1,8 @@
 /******************************************************************************
- * ÎÄ¼şÃû³Æ£º user_client.cpp
- * Ãè    Êö:  ÓÃÓÚÄ£Äâuser²Ù×÷µÄ¿Í»§¶Ë
- * ´´½¨ÈÕÆÚ:  2013-10-3
- * ×÷    Õß£º rainewang
+ * æ–‡ä»¶åç§°ï¼š user_client.cpp
+ * æ    è¿°:  ç”¨äºæ¨¡æ‹Ÿuseræ“ä½œçš„å®¢æˆ·ç«¯
+ * åˆ›å»ºæ—¥æœŸ:  2013-10-3
+ * ä½œ    è€…ï¼š rainewang
  ******************************************************************************/
 #include <stdint.h>
 #include <string>
@@ -47,17 +47,17 @@ using namespace std;
 //important setting
 //if use cosine LSH
 //#define USE_COSINE_LSH
-//¹ıMD5
+//è¿‡MD5
 //#define COMPUTE_LSH_USE_MD5
-//ÎªÁË²âÊÔ×¼È·ĞÔ£¬²»½øĞĞ²åÈëºÍÉ¾³ı²Ù×÷£¡
+//ä¸ºäº†æµ‹è¯•å‡†ç¡®æ€§ï¼Œä¸è¿›è¡Œæ’å…¥å’Œåˆ é™¤æ“ä½œï¼
 #define DO_NOT_INSERT_OR_DELETE
-//²»ÅÜ½Å±¾
+//ä¸è·‘è„šæœ¬
 #define NO_SHELL_USE
 
 
 
 //Configur All_User_Num for test
-//×ÜÁ¿
+//æ€»é‡
 const uint32_t ALL_USER_NUM = 7710;
 //Configur All Train USER
 const uint32_t ALL_TRAIN_NUM = 100;
